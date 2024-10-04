@@ -1,0 +1,1100 @@
+# 1-D Array Operations
+
+def create_array():
+
+    arr = []
+
+    n = int(input("Enter the number of elements: "))
+
+    for i in range(n):
+
+        element = int(input(f"Enter element {i+1}: "))
+
+        arr.append(element)
+
+    return arr
+
+
+
+def insert_element(arr):
+
+    element = int(input("Enter the element to be inserted: "))
+
+    position = int(input("Enter the position (0-based index): "))
+
+    if 0 <= position <= len(arr):
+
+        arr.insert(position, element)
+
+        print(f"Element {element} inserted at position {position}.")
+
+    else:
+
+        print("Invalid position!")
+
+
+
+def delete_element(arr):
+
+    if not arr:
+
+        print("Array is empty. No elements to delete.")
+
+    else:
+
+        position = int(input("Enter the position to delete (0-based index): "))
+
+        if 0 <= position < len(arr):
+
+            removed_element = arr.pop(position)
+
+            print(f"Element {removed_element} deleted from position {position}.")
+
+        else:
+
+            print("Invalid position!")
+
+
+
+def display_array(arr):
+
+    print(f"Current array: {arr}")
+
+
+
+def main_array_operations():
+
+    arr = create_array()
+
+    while True:
+
+        print("\n1. Insert an element\n2. Delete an element\n3. Display array\n4. Exit")
+
+        choice = int(input("Enter your choice: "))
+
+        if choice == 1:
+
+            insert_element(arr)
+
+        elif choice == 2:
+
+            delete_element(arr)
+
+        elif choice == 3:
+
+            display_array(arr)
+
+        elif choice == 4:
+
+            break
+
+        else:
+
+            print("Invalid choice.")
+
+
+
+# Sorting Algorithms
+
+def insertion_sort(arr):
+
+    for i in range(1, len(arr)):
+
+        key = arr[i]
+
+        j = i - 1
+
+        while j >= 0 and key < arr[j]:
+
+            arr[j + 1] = arr[j]
+
+            j -= 1
+
+        arr[j + 1] = key
+
+
+
+def selection_sort(arr):
+
+    for i in range(len(arr)):
+
+        min_idx = i
+
+        for j in range(i + 1, len(arr)):
+
+            if arr[j] < arr[min_idx]:
+
+                min_idx = j
+
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+
+
+
+def bubble_sort(arr):
+
+    for i in range(len(arr)):
+
+        for j in range(0, len(arr) - i - 1):
+
+            if arr[j] > arr[j + 1]:
+
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+
+
+
+# Example usage for sorting
+
+arr = [64, 34, 25, 12, 22, 11, 90]
+
+bubble_sort(arr)
+
+print("Sorted array using Bubble Sort:", arr)
+
+Prac2
+
+# Linear Search
+
+Def linear_search(arr, x):
+
+    For I in range(len(arr)):
+
+        If arr[i] == x:
+
+            Return i
+
+    Return -1
+
+
+
+Arr = [1, 43, 6, 8, 9, 4]
+
+X = 10
+
+Result = linear_search(arr, x)
+
+If result == -1:
+
+    Print(“Element not present.”)
+
+Else:
+
+    Print(f”Element is present at index {result}.”)
+
+
+
+# Binary Search
+
+Def binary_search(arr, x):
+
+    Low, high = 0, len(arr) – 1
+
+    While low <= high:
+
+        Mid = (low + high) // 2
+
+        If arr[mid] == x:
+
+            Return mid
+
+        Elif arr[mid] < x:
+
+            Low = mid + 1
+
+        Else:
+
+            High = mid – 1
+
+    Return -1
+
+
+
+Arr = [2, 3, 4, 10, 40]
+
+X = int(input(“Enter the element to search: “))
+
+Result = binary_search(arr, x)
+
+If result != -1:
+
+    Print(f”Element is present at index {result}.”)
+
+Else:
+
+    Print(“Element not present.”)
+
+Prac3
+
+Def push(stack, item, max_size):
+
+    If len(stack) < max_size:
+
+        Stack.append(item)
+
+        Print(f”Pushed item: {item}”)
+
+    Else:
+
+        Print(“Stack Overflow”)
+
+
+
+Def pop(stack):
+
+    If stack:
+
+        Item = stack.pop()
+
+        Print(f”Popped item: {item}”)
+
+    Else:
+
+        Print(“Stack Underflow”)
+
+
+
+Def display_stack(stack):
+
+    Print(“Current stack:”, stack)
+
+
+
+Def main_stack():
+
+    Stack = []
+
+    Max_size = int(input(“Enter the maximum size of the stack: “))
+
+    While True:
+
+        Print(“\n1. Push\n2. Pop\n3. Display stack\n4. Exit”)
+
+        Choice = input(“Enter your choice: “)
+
+        If choice == ‘1’:
+
+            Item = int(input(“Enter the item to push: “))
+
+            Push(stack, item, max_size)
+
+        Elif choice == ‘2’:
+
+            Pop(stack)
+
+        Elif choice == ‘3’:
+
+            Display_stack(stack)
+
+        Elif choice == ‘4’:
+
+            Break
+
+        Else:
+
+            Print(“Invalid choice.”)
+
+
+
+If __name__ == “__main__”:
+
+    Main_stack()
+
+ Prac4 queue
+
+Def enqueue(queue, item, max_size):
+
+    If len(queue) < max_size:
+
+        Queue.append(item)
+
+        Print(f”Enqueued item: {item}”)
+
+    Else:
+
+        Print(“Queue Overflow”)
+
+
+
+Def dequeue(queue):
+
+    If queue:
+
+        Item = queue.pop(0)
+
+        Print(f”Dequeued item: {item}”)
+
+    Else:
+
+        Print(“Queue Underflow”)
+
+
+
+Def display_queue(queue):
+
+    Print(“Current queue:”, queue)
+
+
+
+Def main_queue():
+
+    Queue = []
+
+    Max_size = int(input(“Enter the maximum size of the queue: “))
+
+    While True:
+
+        Print(“\n1. Enqueue\n2. Dequeue\n3. Display queue\n4. Exit”)
+
+        Choice = input(“Enter your choice: “)
+
+        If choice == ‘1’:
+
+            Item = input(“Enter the item to enqueue: “)
+
+            Enqueue(queue, item, max_size)
+
+        Elif choice == ‘2’:
+
+            Dequeue(queue)
+
+        Elif choice == ‘3’:
+
+            Display_queue(queue)
+
+        Elif choice == ‘4’:
+
+            Break
+
+        Else:
+
+            Print(“Invalid choice.”)
+
+
+
+If __name__ == “__main__”:
+
+    Main_queue()
+
+Prac5 (singly linked list)
+
+Class Node:
+
+    Def __init__(self, data):
+
+        Self.data = data
+
+        Self.next = None
+
+
+
+Class SinglyLinkedList:
+
+    Def __init__(self):
+
+        Self.head = None
+
+
+
+    Def insert_at_beginning(self, new_data):
+
+        New_node = Node(new_data)
+
+        New_node.next = self.head
+
+        Self.head = new_node
+
+
+
+    Def insert_at_end(self, new_data):
+
+        New_node = Node(new_data)
+
+        If self.head is None:
+
+            Self.head = new_node
+
+            Return
+
+        Last = self.head
+
+        While last.next:
+
+            Last = last.next
+
+        Last.next = new_node
+
+
+
+    Def delete_node(self, key):
+
+        Temp = self.head
+
+        If temp is not None:
+
+            If temp.data == key:
+
+                Self.head = temp.next
+
+                Temp = None
+
+                Return
+
+        Prev = None
+
+        While temp is not None:
+
+            If temp.data == key:
+
+                Break
+
+            Prev = temp
+
+            Temp = temp.next
+
+        If temp == None:
+
+            Return
+
+        Prev.next = temp.next
+
+        Temp = None
+
+
+
+    Def print_list(self):
+
+        Temp = self.head
+
+        While temp:
+
+            Print(temp.data, end=” -> “)
+
+            Temp = temp.next
+
+        Print(“None”)
+
+
+
+If __name__ == “__main__”:
+
+    Sll = SinglyLinkedList()
+
+    Sll.insert_at_beginning(3)
+
+    Sll.insert_at_end(1)
+
+    Sll.insert_at_beginning(2)
+
+    Sll.print_list()
+
+    Sll.delete_node(3)
+
+    Sll.print_list()
+
+Doubly linked prac6
+
+Class Node:
+
+    Def __init__(self, data):
+
+        Self.data = data
+
+        Self.next = None
+
+        Self.prev = None
+
+
+
+Class DoublyLinkedList:
+
+    Def __init__(self):
+
+        Self.head = None
+
+
+
+    Def insert_at_beginning(self, new_data):
+
+        New_node = Node(new_data)
+
+        New_node.next = self.head
+
+        If self.head is not None:
+
+            Self.head.prev = new_node
+
+        Self.head = new_node
+
+
+
+    Def insert_at_end(self, new_data):
+
+        New_node = Node(new_data)
+
+        If self.head is None:
+
+            Self.head = new_node
+
+            Return
+
+        Last = self.head
+
+        While last.next:
+
+            Last = last.next
+
+        Last.next = new_node
+
+        New_node.prev = last
+
+
+
+    Def delete_node(self, del_node):
+
+        If self.head is None or del_node is None:
+
+            Return
+
+        If self.head == del_node:
+
+            Self.head = del_node.next
+
+        If del_node.next is not None:
+
+            Del_node.next.prev = del_node.prev
+
+        If del_node.prev is not None:
+
+            Del_node.prev.next = del_node.next
+
+        Del_node = None
+
+
+
+    Def print_list(self):
+
+        Temp = self.head
+
+        While temp:
+
+            Print(temp.data, end=” <-> “)
+
+            Temp = temp.next
+
+        Print(“None”)
+
+Prac7: priority queue using min heap and max heap
+
+# Min Heap Priority Queue
+
+def heapify_up(heap, i):
+
+    while i > 0:
+
+        parent = (i - 1) // 2
+
+        if heap[i] < heap[parent]:
+
+            heap[i], heap[parent] = heap[parent], heap[i]
+
+            i = parent
+
+        else:
+
+            break
+
+
+
+def heapify_down(heap, n, i):
+
+    smallest = i
+
+    left = 2 * i + 1
+
+    right = 2 * i + 2
+
+    if left < n and heap[left] < heap[smallest]:
+
+        smallest = left
+
+    if right < n and heap[right] < heap[smallest]:
+
+        smallest = right
+
+    if smallest != i:
+
+        heap[i], heap[smallest] = heap[smallest], heap[i]
+
+        heapify_down(heap, n, smallest)
+
+
+
+def enqueue(heap, value):
+
+    heap.append(value)
+
+    heapify_up(heap, len(heap) - 1)
+
+
+
+def dequeue(heap):
+
+    if not heap:
+
+        return None
+
+    n = len(heap)
+
+    min_value = heap[0]
+
+    heap[0] = heap[n - 1]
+
+    heap.pop()
+
+    heapify_down(heap, len(heap), 0)
+
+    return min_value
+
+
+
+priority_queue = []
+
+enqueue(priority_queue, 10)
+
+enqueue(priority_queue, 5)
+
+enqueue(priority_queue, 20)
+
+enqueue(priority_queue, 15)
+
+print("Priority Queue:", priority_queue)
+
+
+
+min_value = dequeue(priority_queue)
+
+print("Dequeued min value:", min_value)
+
+print("Updated Priority Queue:", priority_queue)
+
+
+
+# Using heapq for Min Heap
+
+import heapq
+
+
+
+def enqueue_heapq(heap, item):
+
+    heapq.heappush(heap, item)
+
+
+
+def dequeue_heapq(heap):
+
+    return heapq.heappop(heap) if heap else None
+
+
+
+priority_queue_heapq = []
+
+enqueue_heapq(priority_queue_heapq, 10)
+
+enqueue_heapq(priority_queue_heapq, 5)
+
+enqueue_heapq(priority_queue_heapq, 20)
+
+enqueue_heapq(priority_queue_heapq, 15)
+
+print("Priority Queue (heapq):", priority_queue_heapq)
+
+
+
+min_value = dequeue_heapq(priority_queue_heapq)
+
+print("Dequeued min value (heapq):", min_value)
+
+print("Updated Priority Queue (heapq):", priority_queue_heapq)
+
+
+
+# Max Heap with heapq
+
+def enqueue_max_heap(heap, item):
+
+    heapq.heappush(heap, -item)
+
+
+
+def dequeue_max_heap(heap):
+
+    return -heapq.heappop(heap) if heap else None
+
+
+
+priority_queue_max = []
+
+enqueue_max_heap(priority_queue_max, 10)
+
+enqueue_max_heap(priority_queue_max, 5)
+
+enqueue_max_heap(priority_queue_max, 20)
+
+enqueue_max_heap(priority_queue_max, 15)
+
+print("Max Heap Priority Queue:", priority_queue_max)
+
+
+
+max_value = dequeue_max_heap(priority_queue_max)
+
+print("Dequeued max value:", max_value)
+
+print("Updated Max Heap Priority Queue:", priority_queue_max)
+
+Binary Tree
+
+Class TreeNode:
+
+    Def __init__(self, data):
+
+        Self.data = data
+
+        Self.left = None
+
+        Self.right = None
+
+
+
+Def insert(node, value):
+
+    If node is None:
+
+        Return TreeNode(value)
+
+    If value < node.data:
+
+        Node.left = insert(node.left, value)
+
+    Elif value > node.data:
+
+        Node.right = insert(node.right, value)
+
+    Return node
+
+
+
+Def inorder_traversal(node):
+
+    If node:
+
+        Inorder_traversal(node.left)
+
+        Print(node.data, end=” “)
+
+        Inorder_traversal(node.right)
+
+
+
+Def find_successor(node):
+
+    Current = node
+
+    While current.left is not None:
+
+        Current = current.left
+
+    Return current
+
+
+
+Def delete(node, value):
+
+    If node is None:
+
+        Return node
+
+    If value < node.data:
+
+        Node.left = delete(node.left, value)
+
+    Elif value > node.data:
+
+        Node.right = delete(node.right, value)
+
+    Else:
+
+        If node.left is None:
+
+            Return node.right
+
+        Elif node.right is None:
+
+            Return node.left
+
+        Successor = find_successor(node.right)
+
+        Node.data = successor.data
+
+        Node.right = delete(node.right, successor.data)
+
+    Return node
+
+
+
+If __name__ == “__main__”:
+
+    Root = TreeNode(5)
+
+    Root = insert(root, 3)
+
+    Root = insert(root, 7)
+
+    Root = insert(root, 2)
+
+    Root = insert(root, 4)
+
+    Root = insert(root, 6)
+
+    Root = insert(root, 8)
+
+    
+
+    Print(“Binary Tree (Inorder Traversal):”)
+
+    Inorder_traversal(root)
+
+    
+
+    Root = delete(root, 7)
+
+    Print(“\nBinary Tree after deleting 7 (Inorder Traversal):”)
+
+    Inorder_traversal(root)
+
+Prac9: graph
+
+
+
+Class Graph:
+
+    Def __init__(self, size):
+
+        Self.adjMatrix = []
+
+        For I in range(size):
+
+            Self.adjMatrix.append([0 for _ in range(size)])
+
+        Self.size = size
+
+
+
+    Def add_edge(self, v1, v2):
+
+        If v1 == v2:
+
+            Print(f”Same vertex {v1} and {v2}”)
+
+        Else:
+
+            Self.adjMatrix[v1][v2] = 1
+
+            Self.adjMatrix[v2][v1] = 1
+
+
+
+    Def remove_edge(self, v1, v2):
+
+        If self.adjMatrix[v1][v2] == 0:
+
+            Print(f”No edge between {v1} and {v2}”)
+
+        Else:
+
+            Self.adjMatrix[v1][v2] = 0
+
+            Self.adjMatrix[v2][v1] = 0
+
+
+
+    Def add_vertex(self):
+
+        Self.size += 1
+
+        For row in self.adjMatrix:
+
+            Row.append(0)
+
+        Self.adjMatrix.append([0] * self.size)
+
+        Print(f”Vertex {self.size – 1} added.”)
+
+
+
+    Def remove_vertex(self, vertex):
+
+        If vertex >= self.size or vertex < 0:
+
+            Print(f”Vertex {vertex} does not exist.”)
+
+            Return
+
+        Self.adjMatrix.pop(vertex)
+
+        For row in self.adjMatrix:
+
+            Row.pop(vertex)
+
+        Self.size -= 1
+
+        Print(f”Vertex {vertex} removed.”)
+
+
+
+    Def print_matrix(self):
+
+        Print(“Adjacency Matrix:”)
+
+        For row in self.adjMatrix:
+
+            Print(‘ ‘.join(map(str, row)))
+
+
+
+Def main():
+
+    G = Graph(5)
+
+    g.add_edge(0, 1)
+
+    g.add_edge(0, 2)
+
+    g.add_edge(1, 2)
+
+    g.add_edge(2, 3)
+
+    print(“Initial graph:”)
+
+    g.print_matrix()
+
+
+
+    g.add_vertex()
+
+    g.add_edge(3, 5)
+
+    print(“\nGraph after adding a vertex:”)
+
+    g.print_matrix()
+
+
+
+    g.remove_vertex(1)
+
+    print(“\nGraph after removing vertex 1:”)
+
+    g.print_matrix()
+
+
+
+if __name__ == ‘__main__’:
+
+    main()
+
+Prac 10: Hash
+
+Class HashTable:
+
+    Def __init__(self, size):
+
+        Self.size = size
+
+        Self.table = [None] * size
+
+
+
+    Def hash_function(self, key):
+
+        Return key % self.size
+
+
+
+    Def insert(self, key):
+
+        Index = self.hash_function(key)
+
+        If self.table[index] is None:
+
+            Self.table[index] = key
+
+            Print(f”Inserted key {key} at index {index}.”)
+
+        Else:
+
+            # Error message for collision (slot already occupied)
+
+            Print(f”Error: Slot {index} is already occupied by key {self.table[index]}. This table assumes no collisions. Cannot insert key {key}.”)
+
+
+
+    Def delete(self, key):
+
+        Index = self.hash_function(key)
+
+        If self.table[index] == key:
+
+            Self.table[index] = None
+
+            Print(f”Deleted key {key} from index {index}.”)
+
+        Else:
+
+            Print(f”Error: Key {key} not found at index {index}.”)
+
+
+
+    Def traverse(self):
+
+        Print(“Contents of Hash Table:”)
+
+        For I, item in enumerate(self.table):
+
+            If item is not None:
+
+                Print(f”Index {i}: Key {item}”)
+
+            Else:
+
+                Print(f”Index {i}: Empty”)
+
+
+
+# Example usage
+
+Size = 10
+
+Ht = HashTable(size)
+
+Ht.insert(2)
+
+Ht.insert(5)
+
+Ht.insert(620)  # Collision with key 2
+
+Ht.insert(2)  # Duplicate insertion
+
+Ht.insert(52)
+
+Ht.traverse()
+
+Ht.delete(620)
+
+Ht.traverse()
+
+
+
+
+
+
+
